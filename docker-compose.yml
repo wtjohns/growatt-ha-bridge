@@ -1,0 +1,13 @@
+services:
+  growatt-poller:
+    build: .
+    container_name: growatt-poller
+    restart: unless-stopped
+    environment:
+      BASE_URL: ${BASE_URL:-https://shiner-us.growatt.com}
+      GROWATT_USERNAME: ${GROWATT_USERNAME}
+      GROWATT_PASSWORD: ${GROWATT_PASSWORD}
+      GROWATT_DEVICE_SN: ${GROWATT_DEVICE_SN}
+      HA_URL: ${HA_URL:-http://homeassistant.local:8123}
+      HA_TOKEN: ${HA_TOKEN}
+      POLL_INTERVAL_SECONDS: ${POLL_INTERVAL_SECONDS:-300}
