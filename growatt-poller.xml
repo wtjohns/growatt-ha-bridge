@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>growatt-poller</Name>
+  <Repository>growatt-poller</Repository>
+  <Registry></Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project/>
+  <Overview>Polls your Growatt solar inverter every 5 minutes and pushes real-time power data to Home Assistant as sensors. Supports SPH inverters on the shiner-us.growatt.com portal.</Overview>
+  <Category>HomeAutomation:</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/home-assistant/brands/master/core_integrations/growatt_server/icon.png</Icon>
+  <ExtraParams>--restart=unless-stopped</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+
+  <Config Name="Growatt Portal URL" Target="BASE_URL" Default="https://shiner-us.growatt.com" Mode="" Description="Growatt portal for your region. US/Canada: shiner-us.growatt.com. Other regions: server.growatt.com or your regional portal." Type="Variable" Display="always" Required="true" Mask="false">https://shiner-us.growatt.com</Config>
+
+  <Config Name="Growatt Username" Target="GROWATT_USERNAME" Default="" Mode="" Description="Email address you use to log into the Growatt portal." Type="Variable" Display="always" Required="true" Mask="false"></Config>
+
+  <Config Name="Growatt Password" Target="GROWATT_PASSWORD" Default="" Mode="" Description="Your Growatt portal password." Type="Variable" Display="always" Required="true" Mask="true"></Config>
+
+  <Config Name="Device Serial Number" Target="GROWATT_DEVICE_SN" Default="" Mode="" Description="Your inverter serial number. Find it in the Growatt portal under Devices, or on the inverter label." Type="Variable" Display="always" Required="true" Mask="false"></Config>
+
+  <Config Name="Home Assistant URL" Target="HA_URL" Default="http://homeassistant.local:8123" Mode="" Description="URL to your Home Assistant instance. Use the local IP, not a Cloudflare tunnel." Type="Variable" Display="always" Required="true" Mask="false">http://homeassistant.local:8123</Config>
+
+  <Config Name="Home Assistant Token" Target="HA_TOKEN" Default="" Mode="" Description="Long-lived access token from Home Assistant. Generate one at: HA → Profile → Long-Lived Access Tokens." Type="Variable" Display="always" Required="true" Mask="true"></Config>
+
+  <Config Name="Poll Interval (seconds)" Target="POLL_INTERVAL_SECONDS" Default="300" Mode="" Description="How often to poll the Growatt API. Default is 300 (5 minutes). Minimum recommended: 60." Type="Variable" Display="advanced" Required="false" Mask="false">300</Config>
+
+</Container>
